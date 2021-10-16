@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 28px;
+}
+body {
+    width: 100vw;
+    height: 100vh;    
+}
+
+.slider {
+    background-color: rgb(58, 59, 59);
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 4%;
+}
+
+.slider-wrapper {
+    padding: 20px;
+    width: 90%;
+    height: 80vh;
+    background-color: #fff;
+    margin: 0 auto;
+    background-color: rgb(58, 59, 59);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 10%;
+    grid-auto-flow: column;
+    grid-template-areas: 
+    "picture picture"
+    "text bullets";
+    grid-area: "slider";
+    grid-row-gap: 10%;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px 2px rgba(6, 7, 7, 0.5);
+    
+}
+
+.slider-images {
+    grid-column: 1/3;
+    transition: 0.5s;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+}
+
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateX(-90vw);
+    transition: 0.5s;
+    opacity: 0;
+    min-width: 100%;  
+}
+.slider-image:active {
+    transform: scale(1.2);
+}
+
+
+.slider-image1 {
+    background-image: url(./images/what-year-is-it-meme.jpg);
+    
+    order: 1;   
+}
+
+.slider-image2 {
+    order: 2;
+}
+
+.slider-image3 {
+    background-image: url(./images/what-they-think-i-do-sysdamin.jpg);
+    order: 3;
+}
+
+.slider-image4 {
+    background-image: url(./images/45e717e55f28540767ee857753c0045e.png);
+    order: 4;
+ 
+}
+
+.slider-image5 {
+    background-image: url(./images/19.jpg);
+    order: 5;
+
+}
+
+.images-overflow {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    overflow: hidden;
+}
+
+
+.bullet {
+    display: none;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    grid-area: bullets;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+label {
+    width: 40px;
+    height: 60%;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+
+label:last-of-type {
+    margin: 0;
+}
+
+span {
+    display: block;
+    width: 30px;
+    height: 20px;
+    border-radius: 0 30% 0 30%;
+    background-color: wheat;
+    display: flex;
+    gap: 20px;
+    transition: 0.3s;
+    
+}
+
+
+span:hover {
+    background-color: rgb(156, 247, 247);
+    box-shadow: 0px 0px 5px white;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    grid-area: text;
+    color: wheat;
+
+}
+
+.text {
+   min-height: 100%;
+   align-self: flex-start;
+   transform: scale(0.5);
+   opacity: 0;
+   transition: 0.5s;
+}
+
+.text-1 {
+    order:1;
+}
+.text-2 {
+    order:2;
+}
+.text-3 {
+    order:3;
+}
+.text-4 {
+    order:4;
+}
+
+#bullet__1:checked~.controls>#hw1>span,
+#bullet__2:checked~.controls>#hw2>span,
+#bullet__3:checked~.controls>#hw3>span,
+#bullet__4:checked~.controls>#hw4>span{
+    background-color: rgb(23, 155, 111);
+}
+
+span:active {
+    background-color: rgb(195, 206, 201);
+    
+}
+
+#bullet__1:checked~.slider-images>.images-overflow> .slider-image2,
+#bullet__2:checked~.slider-images>.images-overflow> .slider-image2,
+#bullet__3:checked~.slider-images>.images-overflow> .slider-image2,
+#bullet__4:checked~.slider-images>.images-overflow> .slider-image2 {
+    order: 0;
+    opacity: 1;
+}
+
+#bullet__1:checked~.slider-images>.images-overflow> .slider-image1,
+#bullet__2:checked~.slider-images>.images-overflow> .slider-image5,
+#bullet__3:checked~.slider-images>.images-overflow> .slider-image3,
+#bullet__4:checked~.slider-images>.images-overflow> .slider-image4 {
+    transform: translate(0px);
+    order: -1;
+    opacity: 1;
+}
+
+#bullet__1:checked~.text-block> .text-1,
+#bullet__2:checked~.text-block> .text-2,
+#bullet__3:checked~.text-block> .text-3,
+#bullet__4:checked~.text-block> .text-4{
+    transform: scale(1);
+    order: -1;
+    opacity: 1;
+}
+
+@media screen and  (max-width: 1024px){
+   .text-block{
+       font-size: 20px;
+       grid-area: text;
+       
+   }
+   .text {
+       width: 100%;
+    text-align: left;
+   }
+
+   .slider-wrapper {
+       width: 100%;
+       height: 95vh;
+       grid-template-columns: 1fr;
+       grid-template-rows: 70% 15% 15%;
+       gap: 0;
+       grid-template-areas: "picture" "bullets" "text" ;
+       padding: 0;
+   }
+   .slider-images {
+       grid-area: picture;
+       padding: 0 10px;
+       width: 100%;
+       height: 100%;
+
+   }
+   .controls{
+       justify-content: center;
+       grid-area: bullets;
+   }
+
+
+}
+
+@media screen and  (max-width: 420px){
+    *{
+        font-size: 16px;
+    }
+ 
+ }
