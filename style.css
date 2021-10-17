@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto Mono", sans-serif;
-    font-size: 28px;
+    font-size: 1.2rem;
 }
 body {
     width: 100vw;
@@ -11,7 +11,7 @@ body {
 }
 
 .slider {
-    background-color: rgb(58, 59, 59);
+    background-color: rgb(168, 230, 230);
     width: 80%;
     height: 100vh;
     margin: 0 auto;
@@ -19,12 +19,12 @@ body {
 }
 
 .slider-wrapper {
-    padding: 20px;
+    padding: 2%;
     width: 90%;
     height: 80vh;
     background-color: #fff;
     margin: 0 auto;
-    background-color: rgb(58, 59, 59);
+    background-color: rgb(8, 66, 66);
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 10%;
@@ -35,7 +35,7 @@ body {
     grid-area: "slider";
     grid-row-gap: 10%;
     overflow: hidden;
-    box-shadow: 0px 5px 10px 2px rgba(6, 7, 7, 0.5);
+    box-shadow: 0px 0.22rem 0.4rem 0.1rem rgba(6, 7, 7, 0.5);
     
 }
 
@@ -44,7 +44,7 @@ body {
     transition: 0.5s;
     width: 100%;
     overflow: hidden;
-    padding: 20px;
+    padding: 1%;
 }
 
 
@@ -54,8 +54,8 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transform: translateX(-90vw);
-    transition: 0.5s;
+    transform: translateX(-50vw);
+    transition: 0.8s;
     opacity: 0;
     min-width: 100%;  
 }
@@ -63,32 +63,33 @@ body {
     transform: scale(1.2);
 }
 
+.slider-empty {
+    order: 0;
+}
+.slider-empty1 {
+    order: 1;
+}
 
 .slider-image1 {
     background-image: url(./images/what-year-is-it-meme.jpg);
-    
-    order: 1;   
+    order: 2;   
 }
 
-.slider-image2 {
-    order: 2;
-}
+
 
 .slider-image3 {
     background-image: url(./images/what-they-think-i-do-sysdamin.jpg);
-    order: 3;
+    
 }
 
 .slider-image4 {
-    background-image: url(./images/45e717e55f28540767ee857753c0045e.png);
-    order: 4;
+    background-image: url(./images/45e717e55f28540767ee857753c0045e.png);   
  
 }
 
 .slider-image5 {
     background-image: url(./images/19.jpg);
-    order: 5;
-
+    
 }
 
 .images-overflow {
@@ -115,9 +116,9 @@ body {
 }
 
 label {
-    width: 40px;
+    width: 2rem;
     height: 60%;
-    margin-right: 20px;
+    margin-right: 1rem;
     cursor: pointer;
 }
 
@@ -128,20 +129,19 @@ label:last-of-type {
 
 span {
     display: block;
-    width: 30px;
-    height: 20px;
+    width: 1.5rem;
+    height: 1rem;
     border-radius: 0 30% 0 30%;
     background-color: wheat;
     display: flex;
-    gap: 20px;
+    gap: 1rem;
     transition: 0.3s;
     
 }
 
-
-span:hover {
+label:hover span {
     background-color: rgb(156, 247, 247);
-    box-shadow: 0px 0px 5px white;
+    box-shadow: 0px 0px 0.22rem white;
 }
 
 .text-block {
@@ -155,8 +155,9 @@ span:hover {
 .text {
    min-height: 100%;
    align-self: flex-start;
-   transform: scale(0.5);
-   opacity: 0;
+   transform: scale(0.7);
+   opacity: 1;
+   margin-bottom: 1rem;
    transition: 0.5s;
 }
 
@@ -185,13 +186,8 @@ span:active {
     
 }
 
-#bullet__1:checked~.slider-images>.images-overflow> .slider-image2,
-#bullet__2:checked~.slider-images>.images-overflow> .slider-image2,
-#bullet__3:checked~.slider-images>.images-overflow> .slider-image2,
-#bullet__4:checked~.slider-images>.images-overflow> .slider-image2 {
-    order: 0;
-    opacity: 1;
-}
+
+
 
 #bullet__1:checked~.slider-images>.images-overflow> .slider-image1,
 #bullet__2:checked~.slider-images>.images-overflow> .slider-image5,
@@ -201,6 +197,8 @@ span:active {
     order: -1;
     opacity: 1;
 }
+
+
 
 #bullet__1:checked~.text-block> .text-1,
 #bullet__2:checked~.text-block> .text-2,
@@ -212,28 +210,30 @@ span:active {
 }
 
 @media screen and  (max-width: 1024px){
+    .slider {
+        width: 100%;
+        padding: 2rem;
+    }
    .text-block{
-       font-size: 20px;
-       grid-area: text;
-       
+       font-size: 1rem;
+       grid-area: text;  
    }
    .text {
-       width: 100%;
+    width: 100%;
     text-align: left;
    }
 
    .slider-wrapper {
        width: 100%;
-       height: 95vh;
+       height: 90vh;
        grid-template-columns: 1fr;
        grid-template-rows: 70% 15% 15%;
        gap: 0;
        grid-template-areas: "picture" "bullets" "text" ;
-       padding: 0;
+       padding: 0 10px;
    }
    .slider-images {
        grid-area: picture;
-       padding: 0 10px;
        width: 100%;
        height: 100%;
 
@@ -250,5 +250,7 @@ span:active {
     *{
         font-size: 16px;
     }
+
+
  
  }
