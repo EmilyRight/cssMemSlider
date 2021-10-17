@@ -35,8 +35,7 @@ body {
     grid-area: "slider";
     grid-row-gap: 10%;
     overflow: hidden;
-    box-shadow: 0px 0.22rem 0.4rem 0.1rem rgba(6, 7, 7, 0.5);
-    
+    box-shadow: 0px 0.22rem 0.4rem 0.1rem rgba(6, 7, 7, 0.5);  
 }
 
 .slider-images {
@@ -46,7 +45,6 @@ body {
     overflow: hidden;
     padding: 1%;
 }
-
 
 .slider-image {
     width: 100%;
@@ -75,21 +73,16 @@ body {
     order: 2;   
 }
 
-
-
 .slider-image3 {
     background-image: url(./images/what-they-think-i-do-sysdamin.jpg);
-    
 }
 
 .slider-image4 {
     background-image: url(./images/45e717e55f28540767ee857753c0045e.png);   
- 
 }
 
 .slider-image5 {
-    background-image: url(./images/19.jpg);
-    
+    background-image: url(./images/19.jpg);    
 }
 
 .images-overflow {
@@ -99,7 +92,6 @@ body {
     justify-content: start;
     overflow: hidden;
 }
-
 
 .bullet {
     display: none;
@@ -186,9 +178,6 @@ span:active {
     
 }
 
-
-
-
 #bullet__1:checked~.slider-images>.images-overflow> .slider-image1,
 #bullet__2:checked~.slider-images>.images-overflow> .slider-image5,
 #bullet__3:checked~.slider-images>.images-overflow> .slider-image3,
@@ -250,7 +239,5 @@ span:active {
     *{
         font-size: 16px;
     }
-
-
  
  }
